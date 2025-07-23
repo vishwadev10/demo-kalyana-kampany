@@ -35,4 +35,29 @@ document.addEventListener("DOMContentLoaded", function () {
       link.classList.add("active");
     }
   });
+  const hero = document.querySelector(".gallery-hero");
+    const heading = document.getElementById("galleryHeading");
+
+    const slides = [
+      {
+        image: "assets/images/hero.webp",
+        title: "Photo Gallery"
+      },
+      {
+        image: "assets/images/sample2.jpg",
+        title: "Video Gallery"
+      },
+      {
+        image: "assets/images/sample3.jpg",
+        title: "Cinematic Moments"
+      }
+    ];
+
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      hero.style.backgroundImage = `url('${slides[index].image}')`;
+      heading.textContent = slides[index].title;
+    }, 10000); // Change every 10 seconds
 });
